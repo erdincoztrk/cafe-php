@@ -1,0 +1,44 @@
+body{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+hr{
+    color:#fec007;
+}
+.cards{
+    width: 45%; 
+    height: 150px;
+    margin-top: 1%;
+    margin-right:1%;
+    margin-left:1%;
+}
+.cardDiv{
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.indexImages{
+    width: 100%;
+    height:auto;
+}
+.offCanvasButton{
+    width:40%;
+    height: auto;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.offCanvasMenu{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: inherit;
+}
+details{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+li:hover{
+    color:white;
+    transition: 0.8s;
+    cursor:pointer;
+}
