@@ -47,6 +47,10 @@ class DataBase
         return $statement->execute($values);
     }
 
+    public function deleteQuery($tbname, $condition,$id){
+        return $this->db->query("DELETE FROM {$tbname} WHERE $condition = ?")->execute([$id]);
+    }
+
 }
 
 ?>
