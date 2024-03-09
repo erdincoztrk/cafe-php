@@ -38,6 +38,26 @@ $getUser = $db->getRow("SELECT * FROM tbusers");
                     </a>
                 </li>
                 <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">view_list</i>
+                        <span>User Transactions</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="javascript:void(0)" onclick="userList()">User List</a>
+                        </li>
+                        <li>
+                            <a href="pages/tables/jquery-datatable.html">Jquery Datatables</a>
+                        </li>
+                        <li>
+                            <a href="pages/tables/editable-table.html">Editable Tables</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+                <li>
                     <a href="pages/typography.html">
                         <i class="material-icons">text_fields</i>
                         <span>Typography</span>

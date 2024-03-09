@@ -9,7 +9,9 @@ include('php-functions/functions.php');
     </div>
 </section>
 
+<button id="notification" type="button" style="display: none;" class="btn btn-primary btn-block waves-effect" data-placement-from="bottom" data-placement-align="right" data-animate-enter="" data-animate-exit="" data-color-name="">
 
+</button>
 
 <?php
 include('getInclude/footer.php');

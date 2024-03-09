@@ -44,6 +44,8 @@
 
 <script src="js/script.js"></script>
 
+<script src="js/User/user.js"></script>
+
 <script src="js/adminpages.js"></script>
 </body>
 <script>

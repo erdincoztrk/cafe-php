@@ -7,3 +7,12 @@ function homePage(){
         }
     })
 }
+function userList(){
+    $.ajax({
+        url : "user_list.php",
+        type : "GET",
+        success : (data)=>{
+            $('div#mainDiv').html(data)
+        }
+    })
+}
