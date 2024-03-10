@@ -1,4 +1,6 @@
+<?php
 
+?>
 <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" style="display: none;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -29,7 +31,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-6 col-md-6 col-xs-6">
+                        <div class="col-sm-5 col-md-5 col-xs-6">
                             <div class="form-group">
                                 <div class="form-line">
                                     <label for="user_mail">Mail</label>
@@ -39,12 +41,25 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-6 col-md-6 col-xs-6">
+                        <div class="col-sm-4 col-md-4 col-xs-6">
                             <div class="form-group">
                                 <div class="form-line">
                                     <label for="user_gsm">GSM</label>
                                     <input type="tel" class="form-control" placeholder="GSM" id="user_gsm"
                                            name="user_gsm">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3 col-md-3 col-xs-6">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <label for="user_authority">Authority</label>
+                                    <select id="user_authority" name="user_authority" class="form-control">
+                                    <?php foreach($usertypes as $utype): ?>
+                                        <option value="<?=$utype['utype_id']?>"><?=$utype['utype_name']?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +89,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-link waves-effect" onclick="addUser($('#addUserForm'))">Add User</button>
+                <button type="button" class="btn btn-link waves-effect" onclick="addUser($('#addUserForm'))">ADD USER</button>
                 <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
             </div>
         </div>

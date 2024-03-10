@@ -1,4 +1,6 @@
 <?php
+include('../../../Classes/dbConnection.php');
+
 abstract class transaction
 {
     protected $db;
@@ -17,7 +19,8 @@ abstract class transaction
     public abstract function update();
 }
 
-class user extends transaction {
+class user extends transaction
+{
     public $id;
     public $username;
     public $password;
@@ -27,17 +30,25 @@ class user extends transaction {
     public $mail;
     public $gsm;
 
-    public function insert(){
-        $this->db->insertQuery("tbusers", "user_username, user_password, user_name, user_surname, user_authority, user_mail, user_gsm", "$this->username, $this->password, $this->name, $this->surname, $this->authority, $this->mail, $this->gsm");
+
+    public function insert()
+    {
+        $values = array($this->username, $this->password, $this->name, $this->surname, $this->authority, $this->mail, $this->gsm);
+        $this->db->insertQuery("tbusers", "user_username, user_password, user_name, user_surname, user_authority, user_mail, user_gsm", $values);
     }
-    public function update(){
+
+    public function update()
+    {
         return $this->db->query("$this->updateQuery", [$this->updateVariables]);
     }
-    public function delete(){
+
+    public function delete()
+    {
         return $this->db->deleteQuery("tbusers", "user_id", "{$this->id}");
 
     }
 
 
 }
+
 ?>
