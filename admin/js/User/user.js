@@ -15,13 +15,11 @@ function addUser(form){
         url : "Transactions/userTransactions/addUser.php",
         data :formElements,
         success : (data)=>{
-            console.log(data)
-            $('#notification').attr("data-color-name","green").text("Transaction was success");
-            $('#notification').click();
+            userList();
+
         },
         error : ()=>{
-            $('#notification').attr("data-color-name","red").text("Transaction was unsuccess");
-            $('#notification').click();
+        userList()
         }
     })
 }
