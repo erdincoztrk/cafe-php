@@ -19,22 +19,24 @@ class DataBase
         }
     }
 
-
-    public function getRow($query)
-    {
-        return $this->db->query($query)->fetch(PDO::FETCH_ASSOC);
-    }
-
-    public function getRows($query)
-    {
-        return $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
-    }
-
     public function query($query, $parameters = null)
     {
         $result = ($parameters) ? $this->db->prepare($query)->execute($parameters) : $this->db->prepare($query)->execute();
         return $result;
     }
+
+    public function getRow($query, $prm)
+    {
+        return $prm ? $this->db->query($query)->execute($prm)->fetch(PDO::FETCH_ASSOC) : $this->db->query($query)->fetch(PDO::FETCH_ASSOC);
+        //return $this->db->query($query)->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getRows($query, $prm)
+    {
+        return $prm ? $this->db->query($query)->execute($prm)->fetchAll(PDO::FETCH_ASSOC) : $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+        //return $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
     public function dbCount($tbname){
         return $this->query("SELECT COUNT(*) FROM {$tbname}");
