@@ -20,14 +20,14 @@ class DataBase
     }
 
 
-    public function getRow($query, $parameters)
+    public function getRow($query, $parameters = null)
     {
-        return $this->db->query($query)->execute($parameters);
+        return $parameters ? $this->db->query($query)->execute($parameters)->fetch(PDO::FETCH_ASSOC) : $this->db->query($query)->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function getRows($query)
+    public function getRows($query, $parameters = null)
     {
-        return $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+        return $parameters ? $this->db->query($query)->execute($parameters)->fetchAll(PDO::FETCH_ASSOC) : $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function query($query, $parameters = null)
