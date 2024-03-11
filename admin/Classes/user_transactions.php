@@ -33,6 +33,10 @@ class user extends transaction
 
     public function insert()
     {
+        $control = $this->db->getRow("SELECT user_username, user_gsm FROM tbusers WHERE user_username = ? OR user_gsm = ? ",[$this->username, $this->gsm]);
+        if($control){
+
+        }
         $values = array($this->username, $this->password, $this->name, $this->surname, $this->authority, $this->mail, $this->gsm);
         $this->db->insertQuery("tbusers", "user_username, user_password, user_name, user_surname, user_authority, user_mail, user_gsm", $values);
     }

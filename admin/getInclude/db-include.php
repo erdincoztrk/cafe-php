@@ -1,4 +1,4 @@
 <?php
-include('../Classes/dbConnection.php');
+require_once('../Classes/dbConnection.php');
 $db = new DataBase();
 ?>

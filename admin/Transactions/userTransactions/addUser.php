@@ -8,6 +8,7 @@ $mail = $_POST['user_mail'];
 $gsm = $_POST['user_gsm'];
 $username = $_POST['user_username'];
 $password = $_POST['user_password'];
+$authority = $_POST['user_authority'];
 
 
 $user->name =  $name;
@@ -16,6 +17,6 @@ $user->mail =  $mail;
 $user->gsm =  $gsm;
 $user->username =  $username;
 $user->password =  $password;
-$user->authority = "kullanıcı";
+$user->authority =  $authority;
 $user->insert();
 ?>
