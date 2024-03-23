@@ -9,3 +9,7 @@ include("getInclude/includes.php");
 <div id="addUserModel">
 <?php partial("user/_add-user-modal.php") ?>
 </div>
+
+<div id="editUserModel">
+    <?php partial("user/_edit-user-modal.php") ?>
+</div>

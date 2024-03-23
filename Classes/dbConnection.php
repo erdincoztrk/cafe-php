@@ -20,14 +20,16 @@ class DataBase
     }
 
 
-    public function getRow($query, $parameters = null)
+    public function getRow($query, $condition = null)
     {
-        return $parameters ? $this->db->query($query)->execute($parameters)->fetch(PDO::FETCH_ASSOC) : $this->db->query($query)->fetch(PDO::FETCH_ASSOC);
+        return $condition ? $this->db->query($query .' '. $condition)->fetch(PDO::FETCH_ASSOC) : $this->db->query($query)->fetch(PDO::FETCH_ASSOC);
+       // return $parameters ? $this->db->query($query)->execute($parameters)->fetch(PDO::FETCH_ASSOC) : $this->db->query($query)->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function getRows($query, $parameters = null)
+    public function getRows($query, $condition = null)
     {
-        return $parameters ? $this->db->query($query)->execute($parameters)->fetchAll(PDO::FETCH_ASSOC) : $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+        return $condition ? $this->db->query($query .' '. $condition)->fetchAll(PDO::FETCH_ASSOC) : $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+     //   return $parameters ? $this->db->query($query)->execute($parameters)->fetchAll(PDO::FETCH_ASSOC) : $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function query($query, $parameters = null)
@@ -48,7 +50,7 @@ class DataBase
     }
 
     public function deleteQuery($tbname, $condition,$id){
-        return $this->db->query("DELETE FROM {$tbname} WHERE $condition = ?")->execute([$id]);
+      $this->db->query("DELETE FROM $tbname WHERE $condition = ?")->execute($id);
     }
 
 }

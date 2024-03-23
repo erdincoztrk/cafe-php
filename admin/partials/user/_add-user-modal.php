@@ -58,9 +58,10 @@ $usertypes = $db->getRows("SELECT * FROM tbusertype");
                             <div class="form-group">
                                 <div class="form-line">
                                     <label for="user_authority">Authority</label>
-                                    <select id="user_authority" name="user_authority" name="user_authority" class="form-control">
-                                    <?php foreach($usertypes as $utype): ?>
-                                        <option value="<?=$utype['utype_id']?>"><?=$utype['utype_name']?></option>
+                                    <select id="user_authority" name="user_authority" name="user_authority"
+                                            class="form-control">
+                                        <?php foreach ($usertypes as $utype): ?>
+                                            <option value="<?= $utype['utype_id'] ?>"><?= $utype['utype_name'] ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -92,8 +93,11 @@ $usertypes = $db->getRows("SELECT * FROM tbusertype");
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-link waves-effect" onclick="addUser($('#addUserForm'))">ADD USER</button>
-                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="modalClose">CLOSE</button>
+                <button type="button" class="btn btn-link waves-effect"
+                        onclick="addUser($('#addUserForm'), 'addUserForm');">ADD USER
+                </button>
+                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal" id="modalClose">CLOSE
+                </button>
             </div>
         </div>
     </div>

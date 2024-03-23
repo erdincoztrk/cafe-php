@@ -33,12 +33,15 @@ class user extends transaction
 
     public function insert()
     {
-        $control = $this->db->getRow("SELECT user_username, user_gsm FROM tbusers WHERE user_username = ? OR user_gsm = ? ",[$this->username, $this->gsm]);
-        if($control){
-
-        }
+      $control = $this->db->getRows("SELECT * FROM tbusers WHERE user_username = '$this->username' OR user_gsm = $this->gsm");
+      if($control){
+         echo "Username or GSM have been used before*4";
+         return;
+      }
         $values = array($this->username, $this->password, $this->name, $this->surname, $this->authority, $this->mail, $this->gsm);
         $this->db->insertQuery("tbusers", "user_username, user_password, user_name, user_surname, user_authority, user_mail, user_gsm", $values);
+        echo "User was saved!*1";
+
     }
 
     public function update()
@@ -48,8 +51,9 @@ class user extends transaction
 
     public function delete()
     {
-        return $this->db->deleteQuery("tbusers", "user_id", "{$this->id}");
-
+      // $this->db->deleteQuery("tbusers", "user_id", [$this->id]);
+        $this->db->query("DELETE FROM tbusers WHERE user_id = ?", [$this->id]);
+        echo "User was deleted*3";
     }
 
 
